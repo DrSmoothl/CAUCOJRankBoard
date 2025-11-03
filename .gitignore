@@ -5,7 +5,6 @@ yarn.lock
 example-plugins/
 canuse-templates/
 dev/
-*.json
 
 
 # TypeScript

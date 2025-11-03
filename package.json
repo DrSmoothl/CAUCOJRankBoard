@@ -1,0 +1,19 @@
+{
+  "name": "caucoj-rankboard",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "description": "CAU COJ Awards Ranking Board Plugin for HydroOJ",
+  "author": "CAU COJ",
+  "scripts": {
+    "build": "tsc",
+    "import": "node import_data.js"
+  },
+  "dependencies": {
+    "hydrooj": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
