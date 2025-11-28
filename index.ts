@@ -144,6 +144,12 @@ namespace RankBoardModel {
 // 排名榜主页处理器
 class RankBoardMainHandler extends Handler {
   async get() {
+    // 检查登录状态，未登录则跳转到首页
+    if (!this.user._id || this.user._id === 0) {
+      this.response.redirect = '/';
+      return;
+    }
+    
     const domainId = this.domain._id;
     
     console.log('主页获取数据，domainId:', domainId);
@@ -476,8 +482,8 @@ export function apply(ctx: Context) {
     PRIV.PRIV_EDIT_SYSTEM
   );
 
-  // 添加到导航栏
-  ctx.injectUI('Nav', 'rankboard_main', { prefix: 'trophy' });
+  // 添加到导航栏（仅登录用户可见）
+  ctx.injectUI('Nav', 'rankboard_main', { prefix: 'trophy' }, PRIV.PRIV_USER_PROFILE);
 
   // 国际化
   ctx.i18n.load('zh', {
